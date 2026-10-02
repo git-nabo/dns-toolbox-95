@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B4C2E10-9A31-4C5D-9E44-1D0A2F5B7C31}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DnsToolbox95</RootNamespace>
+    <AssemblyName>DnsToolbox95</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>..\assets\app.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Dns\DnsMessage.cs" />
+    <Compile Include="Dns\DnsModels.cs" />
+    <Compile Include="Dns\DnsQueryService.cs" />
+    <Compile Include="Dns\DnsTypes.cs" />
+    <Compile Include="Dns\SystemResolvers.cs" />
+    <Compile Include="Diagnostics\DiagnosticResult.cs" />
+    <Compile Include="Diagnostics\DkimAnalyzer.cs" />
+    <Compile Include="Diagnostics\DmarcAnalyzer.cs" />
+    <Compile Include="Diagnostics\DnssecAnalyzer.cs" />
+    <Compile Include="Diagnostics\MailDnsAnalyzer.cs" />
+    <Compile Include="Diagnostics\ResolverComparisonService.cs" />
+    <Compile Include="Diagnostics\ReverseDnsAnalyzer.cs" />
+    <Compile Include="Diagnostics\SpfAnalyzer.cs" />
+    <Compile Include="Settings\AppSettings.cs" />
+    <Compile Include="Ui\ClassicButton.cs" />
+    <Compile Include="Ui\ClassicControls.cs" />
+    <Compile Include="Ui\ClassicListView.cs" />
+    <Compile Include="Ui\ClassicMouse.cs" />
+    <Compile Include="Ui\Dialogs\AboutDialogs.cs" />
+    <Compile Include="Ui\Dialogs\CompareDialogs.cs" />
+    <Compile Include="Ui\Dialogs\DiagnosticForm.cs" />
+    <Compile Include="Ui\Dialogs\ToolDialogs.cs" />
+    <Compile Include="Ui\MainForm.cs" />
+    <Compile Include="Ui\TablessTabControl.cs" />
+    <Compile Include="Ui\Win95Chrome.cs" />
+    <Compile Include="Ui\ToolDialogForm.cs" />
+    <Compile Include="Ui\Win95Form.cs" />
+    <Compile Include="Ui\Win95MessageBox.cs" />
+    <Compile Include="Ui\Win95Style.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
