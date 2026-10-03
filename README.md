@@ -7,6 +7,9 @@ It belongs to the same visual suite as **VlanConfig95**, but it is a completely
 standalone application: nothing is shared with, referenced by, or loaded from that
 project at run time.
 
+DNS results depend on the selected resolver and current DNS state. 
+Diagnostic results should not be treated as authoritative security or compliance assessments.
+
 Main window, with the query bar and the structured results table:
 
 ![Main window](docs/images/main-window.png)
@@ -120,25 +123,18 @@ The DNS engine is written from scratch against RFC 1035 (`src/Dns`):
 Queries run on the thread pool with a cancellation token, and results are posted
 back to the UI thread explicitly, so the window never blocks.
 
-## Design notes
+## Disclaimer
 
-The interface is drawn entirely by hand: the navy gradient caption, the raised and
-sunken 3D borders, the etched group boxes and the classic status bar are all
-painted, so nothing from the Windows 10 or 11 theme leaks through.
+This project is experimental hobby software and is provided as-is.
 
-It behaves like a modern application. Buttons, checkboxes, menu items, the caption
-buttons and the dialog buttons all respond to a **single** click.
+Use it at your own risk. The author and geissler-IT make no guarantees regarding correctness, availability, compatibility or fitness for a particular purpose.
 
-That last point needed a real fix rather than a copied assumption. WinForms only
-synthesises a `Click` event from a mouse release for a *captioned* window. These
-windows are borderless, where the base class raises nothing at all, so a control
-that relied on the base would be completely dead. `ClassicMouse` turns off
-`ControlStyles.UserMouse` and handles the two button messages directly, which gives
-exactly one `Click` per physical press in every window style.
+The author and geissler-IT are not responsible for data loss, network outages, misconfiguration, service interruption or other damage resulting from the use of this software.
 
-The application icon is embedded in the EXE and assigned to the real form, so the
-same image appears in Explorer, the taskbar, Alt+Tab and the window caption.
+Always verify changes before using the tool in production environments.
 
 ## Developer
 
 Khaled Nabo (geissler-IT)
+
+This is a personal hobby project and is not an officially supported geissler-IT product.
